@@ -1,0 +1,11 @@
+{
+  "name": "montyhall",
+  "version": "1.0.0",
+  "description": "A program to verify the monty hall probability problem",
+  "main": "index.js",
+  "author": "Preston Wang-Stosur-Bassett",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "underscore": "^1.8.3"
+  }
+}
