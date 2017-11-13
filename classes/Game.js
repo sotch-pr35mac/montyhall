@@ -10,13 +10,13 @@ var _ =  require('underscore');
 
 module.exports = class Game {
   /*
-   *  The constructor defines a new instance of Game without any input
+   *  The constructor defines a new instance of Game with input of how many doors to create for this game
   */
-  constructor() {
+  constructor(numOfDoors) {
     var doors = [];
 
     // Create 3 doors, mark the third as the winning door
-    for(var i = 0; i < 3; i++) {
+    for(var i = 0; i < numOfDoors; i++) {
       if(i < 2) {
         doors.push(new Door(false));
       } else {
@@ -74,14 +74,14 @@ module.exports = class Game {
    *  Simulate game play an x amount of times and return the results.
    * Just go through and play the game the provided number of times and record when a game wins or when a game loses
   */
-  static simulate(numOfGames) {
+  static simulate(numOfGames, numOfDoors) {
     // Keep a record of how many times it was correct to switch choice, and how many times it was incorrect to switch choice
     var correct = 0;
     var incorrect = 0;
 
     // Create x amount of games and play it, then mark whether or not the game was won or not
     for(var i = 0; i < numOfGames; i++) {
-      var currentGame = new Game();
+      var currentGame = new Game(numOfDoors);
       if(currentGame.play()) {
         correct++;
       } else {

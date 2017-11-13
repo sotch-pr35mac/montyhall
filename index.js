@@ -10,8 +10,11 @@ var Game = require('./classes/Game.js');
 // Define the number of times to play the game
 var numberOfTurns = 1000000;
 
+// Define the number of doors each game has
+var numberOfDoors = 3;
+
 // Simulate the game play x number of times
-var results = Game.simulate(numberOfTurns);
+var results = Game.simulate(numberOfTurns, numberOfDoors);
 
 // Format the results as percentages
 var formatted = results.probability * 100;
