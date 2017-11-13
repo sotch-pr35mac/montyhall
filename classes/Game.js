@@ -15,19 +15,28 @@ module.exports = class Game {
   constructor(numOfDoors) {
     var doors = [];
 
-    // Create 3 doors, mark the third as the winning door
-    for(var i = 0; i < numOfDoors; i++) {
-      if(i < 2) {
-        doors.push(new Door(false));
-      } else {
-        doors.push(new Door(true));
-      }
+    // Add the winning door
+    doors.push(new Door(true));
+
+    // Create the other doors
+    for(var i = 0; i < numOfDoors - 1; i++) {
+      doors.push(new Door(false));
     }
 
     // Shuffle the order of the doors
     doors = _.shuffle(doors);
 
+    var winningDoor;
+
+    for(var i = 0; i < numOfDoors; i++) {
+      if(doors[i].containsCar) {
+        winningDoor = i;
+        break;
+      }
+    }
+
     this.doors = doors;
+    this.winningDoor = winningDoor;
   }
 
   /*
@@ -39,11 +48,11 @@ module.exports = class Game {
   */
   play() {
     // First pick a random door
-    var random = Math.floor(Math.random() * 4);
+    var random = Math.floor(Math.random() * this.doors.length);
 
     // Now that we have chosen a door, lets open a door that is a goat
     var openDoor;
-    for(var i = 0; i < 3; i++) {
+    for(var i = 0; i < this.doors.length; i++) {
       if(!this.doors[i].containsCar && i != random) {
         openDoor = i;
         break;
@@ -52,7 +61,7 @@ module.exports = class Game {
 
     // Now that we have an open door, lets switch our choice to the next door
     var newChoice;
-    for(var i = 0; i < 3; i++) {
+    for(var i = 0; i < this.doors.length; i++) {
       if(i != random && i != openDoor) {
         newChoice = i;
       }

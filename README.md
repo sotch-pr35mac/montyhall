@@ -10,4 +10,4 @@ First you will need to have `node` and `npm` installed on your computer. Click [
 Now you will want to install the node modules. To do this run the following command: `npm install`.
 
 #### Step 3
-Run the program! You can run the program using the command `node index.js`. By default, the program runs the Monty Hall Game 1,000,000 times. This can be changed by editing `index.js`. The variable `numberOfTurns` is the counter for how many times the game gets played. You can change it to whatever you want. It is declared on Line 11 of `index.js`. To edit the amount of doors that is played with each game, you can edit the variable `numberOfDoors` on Line 14 of `index.js`.
+Run the program! You can run the program using the command `node index.js`. By default, the program runs the Monty Hall Game 1,000,000 times and with 3 doors. This can be changed by editing `index.js`. The variable `numberOfTurns` is the counter for how many times the game gets played. You can change it to whatever you want. It is declared on Line 11 of `index.js`. To edit the amount of doors that is played with each game, you can edit the variable `numberOfDoors` on Line 14 of `index.js`.
